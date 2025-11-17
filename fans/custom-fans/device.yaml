@@ -1,0 +1,16 @@
+## Change input_boolean.bedroom_fan_state to your input boolean helper.
+## Change input_number.bedroom_fan_percentage to your input number helper.
+## If you've renamed the scripts given in scripts.yaml. Rename them here too.
+friendly_name: "Bedroom Ceiling Fan"
+unique_id: bedroom_fan
+value_template: "{{ states('input_boolean.bedroom_fan_state') }}"
+percentage_template: "{{ states('input_number.bedroom_fan_percentage') }}"
+turn_on:
+  action: script.bedroom_fan_on
+turn_off:
+  action: script.bedroom_fan_off
+set_percentage:
+  action: script.bedroom_fan_set_speed
+  data:
+    percentage: "{{ percentage }}"
+speed_count: 3
